@@ -30,3 +30,11 @@ def get_db():
         yield db
     finally:
         db.close()
+
+def get_db_session():
+    """Зависимость для FastAPI для получения сессии БД"""
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
